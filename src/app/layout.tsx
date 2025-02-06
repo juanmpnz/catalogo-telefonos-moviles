@@ -7,6 +7,9 @@ import { getPhones } from '@/services/api';
 export const metadata: Metadata = {
   title: 'Catálogo teléfonos móviles',
   description: 'Desafío de código',
+  icons: {
+    icon: '/favicon.ico', 
+  },
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

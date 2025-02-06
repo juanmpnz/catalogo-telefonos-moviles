@@ -1,19 +1,22 @@
 import React from 'react';
 import { CardProps } from '@/interfaces';
-
+import Image from 'next/image';
 import '../styles/components/card.scss';
 
 const Card: React.FC<CardProps> = ({ phone, onClick }) => {
+  const secureImageUrl = phone.imageUrl?.startsWith('http://')
+  ? phone.imageUrl.replace(/^http:\/\//i, 'https://')
+  : phone.imageUrl;
   return (
     <span onClick={() => onClick(phone.id)}>
       <div className="card">
         <div className="card--card-image">
-          <img
-            src={phone.imageUrl}
-            alt="Phone"
+        <Image
+            src={secureImageUrl}
+            alt={`${phone.brand} - ${phone.name}`}
             width={312}
             height={257}
-            loading="eager"
+            priority
             style={{ objectFit: 'contain' }}
           />
         </div>

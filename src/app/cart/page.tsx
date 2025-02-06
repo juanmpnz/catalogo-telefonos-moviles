@@ -1,11 +1,11 @@
 'use client';
+import '@/styles/cart.scss';
 import Button from '@/components/Button';
 import CartItem from '@/components/CartItem';
 import { usePhone } from '@/context/PhonesContext';
 import { ICartItem } from '@/interfaces';
-import '@/styles/cart.scss';
-import componentText from '@/locales/locales.json';
 import { useRouter } from 'next/navigation';
+import componentText from '@/locales/locales.json';
 
 export default function Cart() {
   const router = useRouter();

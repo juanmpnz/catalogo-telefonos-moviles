@@ -10,6 +10,7 @@ import SpecificationItem from '@/components/SpecificationItem';
 import SimilarProducts from '@/components/SimilarProducts';
 import componentText from '@/locales/locales.json';
 import Loading from '@/components/Loading';
+import Image from 'next/image';
 
 import '../../styles/product.scss';
 
@@ -32,7 +33,10 @@ const PhoneDetail = () => {
   const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
   const [dataCart, setDataCart] = useState<ICartItem | null>(null);
   const [image, setImage] = useState(selectedPhoneData?.colorOptions[0].imageUrl);
- 
+
+  const secureImageUrl = image?.startsWith('http://')
+  ? image.replace(/^http:\/\//i, 'https://')
+  : image;
 
   const translatedSpecs =
     (selectedPhoneData &&
@@ -89,6 +93,7 @@ const PhoneDetail = () => {
       router.push('/cart');
     }
   };
+  
 
   useEffect(() => {
     if (!selectedPhoneId) {
@@ -106,21 +111,20 @@ const PhoneDetail = () => {
 
   return (
     <div className="product-container">
-      {isLoading ? (
+      {isLoading && !image ? (
         <Loading />
       ) : (
         <>
           <div className="product-container--image-detail-container">
             <div className="product-container--image">
               {image && (
-                <img
-                  key={image}
-                  src={image}
-                  alt={selectedPhoneData?.name || 'Image'}
+                <Image
+                  src={secureImageUrl || image}
+                  alt={selectedPhoneData?.name || 'Phone'}
                   width={510}
                   height={630}
+                  priority
                   style={{ objectFit: 'contain' }}
-                  loading="eager" 
                 />
               )}
             </div>
