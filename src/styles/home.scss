@@ -1,0 +1,26 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.home-container {
+  &-search-results {
+    padding: 0px 100px;
+    font-family: Helvetica Neue;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14.51px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+    @include mq('mobile') {
+      padding: 0;
+    }
+  }
+
+  &-phone-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 48px;
+  }
+}

@@ -1,0 +1,14 @@
+.color-picker {
+  display: flex;
+  gap: 10px;
+
+  &--color-box {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+}
+
+.color-circle.selected {
+  transform: scale(1.2);
+}

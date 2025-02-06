@@ -1,0 +1,72 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  width: 100%;
+  height: 40px;
+  font-family: Helvetica Neue;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  &--button--extra-height {
+    height: 56px;
+  }
+
+  @include mq('tablet') {
+    height: 48px;
+  }
+
+  @include mq('mobile') {
+    height: 48px;
+  }
+
+  &--text {
+    background: transparent;
+    border: 0.5px solid var(--SDS-Semantic-Highlight-Active, $border-color);
+    color: $text-color;
+    &:hover {
+      color: $text-color-hover;
+    }
+  }
+
+  &--primary {
+    background: $button-default;
+    color: $text-color-withe;
+    &:hover {
+      background: $button-hover;
+    }
+  }
+
+  &--tertiary {
+    width: 50%;
+    background: transparent;
+    color: $text-color;
+    border: none;
+    text-transform: capitalize;
+  }
+
+  &--standard {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &--extra-height {
+    height: 3rem;
+  }
+
+  &--disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+}

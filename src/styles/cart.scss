@@ -1,0 +1,70 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 100px);
+  color: $text-color;
+  padding: $spacing-medium $spacing-100;
+
+  @include mq('mobile') {
+    width: 100%;
+    padding: 0;
+  }
+
+  h1 {
+    font-family: Helvetica Neue;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 29.02px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+    @include mq('mobile') {
+      padding: 16px 24px;
+    }
+  }
+
+  & > div:nth-child(2) {
+    flex: 1;
+  }
+
+  &--footer {
+    padding: 1rem;
+
+    @include mq('mobile') {
+      padding: 16px 24px;
+    }
+
+    &--content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include mq('mobile') {
+        flex-direction: column-reverse;
+        gap: 24px;
+      }
+    }
+
+    &--total {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      @include mq('mobile') {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .button-w {
+    width: 260px;
+    @include mq('mobile') {
+      width: 100%;
+    }
+  }
+}

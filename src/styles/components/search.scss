@@ -1,0 +1,59 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.search {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 100px;
+
+  @include mq('mobile') {
+    padding: 0;
+  }
+  &__input {
+    flex: 1;
+    border: none;
+    outline: none;
+
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    font-family: Helvetica Neue;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19.34px;
+
+    &:focus {
+      border-bottom: 2px solid black;
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    right: 100px;
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+  }
+
+  &__button {
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #333;
+    }
+
+    &:active {
+      background-color: #555;
+    }
+  }
+}

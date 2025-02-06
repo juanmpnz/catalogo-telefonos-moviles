@@ -1,0 +1,38 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.layout {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $text-color;
+    padding: $spacing-medium $spacing-100;
+    span {
+      cursor: pointer;
+    }
+
+    .card-content-header {
+      width: 33px;
+      height: 26px;
+      padding: $spacing-esmall;
+      gap: $spacing-esmall;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        height: 8px;
+        font-size: $font-size-base;
+      }
+    }
+
+    @include mq('tablet') {
+      padding: $spacing-large $spacing-40;
+    }
+
+    @include mq('mobile') {
+      padding: $spacing-medium $spacing-large;
+    }
+  }
+}

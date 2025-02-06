@@ -1,0 +1,27 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.storage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  border: 0.5px solid var(--SDS-Semantic-Highlight-Active, rgba(204, 204, 204, 1));
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  width: 95px;
+  height: 65px;
+  background: transparent;
+  color: $text-color;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16.93px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.storage--selected {
+  border: 0.5px solid var(--SDS-Semantic-Highlight-Active, $border-color);
+}
