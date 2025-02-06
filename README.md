@@ -17,7 +17,7 @@ Una aplicación web **Single Page Application (SPA)** desarrollada con **Next.js
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/tu-usuario/catalogo-telefonos-moviles.git
+   git clone https://github.com/juanmpnz/catalogo-telefonos-moviles
    cd catalogo-telefonos-moviles
    ```
 
