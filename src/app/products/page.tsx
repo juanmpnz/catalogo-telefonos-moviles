@@ -3,7 +3,6 @@ import { usePhone } from '@/context/PhonesContext';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ICartItem, PhoneSpecs } from '@/interfaces';
-import Image from 'next/image';
 import Storage from '@/components/Storage';
 import ColorPicker from '@/components/ColorPicker';
 import Button from '@/components/Button';
