@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { CardProps } from '@/interfaces';
 
 import '../styles/components/card.scss';

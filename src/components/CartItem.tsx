@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { CartItemProps } from '@/interfaces';
 import componentText from '@/locales/locales.json';
 import Button from './Button';
@@ -11,7 +10,7 @@ const CartItem: React.FC<CartItemProps> = ({ phone, onDelete }) => {
   return (
     <div className="cart-item">
       <div className="cart-item--image">
-        <Image src={phone.imageUrl} alt="Phone" width={312} height={257}  loading="eager"  style={{ objectFit: 'contain' }} />
+        <img src={phone.imageUrl} alt="Phone" width={312} height={257}  loading="eager"  style={{ objectFit: 'contain' }} />
       </div>
       <div>
         <div className="cart-item--content">
