@@ -11,8 +11,7 @@ import SimilarProducts from '@/components/SimilarProducts';
 import componentText from '@/locales/locales.json';
 import Loading from '@/components/Loading';
 import Image from 'next/image';
-
-import '../../styles/product.scss';
+import '@/styles/product.scss';
 
 const translations: { [K in keyof PhoneSpecs]: string } = {
   screen: 'pantalla',
@@ -26,17 +25,15 @@ const translations: { [K in keyof PhoneSpecs]: string } = {
 };
 
 const PhoneDetail = () => {
-  const { priceForm, currency, storageText, pickColorText, buttonText, specificationsText } =
-    componentText.product;
+  const { priceForm, currency, storageText, pickColorText, buttonText, specificationsText , url} = componentText.product;
   const { selectedPhoneId, selectedPhoneData, fetchAndSetPhoneData, isLoading, clearPhoneData, addToCart } = usePhone();
   const router = useRouter();
   const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
   const [dataCart, setDataCart] = useState<ICartItem | null>(null);
   const [image, setImage] = useState(selectedPhoneData?.colorOptions[0].imageUrl);
+  const { setSelectedPhoneId } = usePhone();
 
-  const secureImageUrl = image?.startsWith('http://')
-  ? image.replace(/^http:\/\//i, 'https://')
-  : image;
+  const secureImageUrl = image?.startsWith('http://') ? image.replace(/^http:\/\//i, 'https://') : image;
 
   const translatedSpecs =
     (selectedPhoneData &&
@@ -53,13 +50,13 @@ const PhoneDetail = () => {
     );
     if (selectedColorOption) {
       setImage(selectedColorOption.imageUrl);
- 
+
       setDataCart((prev) => {
-        if (!prev) return prev; 
+        if (!prev) return prev;
         return {
           ...prev,
           imageUrl: selectedColorOption.imageUrl,
-          colorName: selectedColorOption.name
+          colorName: selectedColorOption.name,
         };
       });
     }
@@ -71,9 +68,9 @@ const PhoneDetail = () => {
   };
 
   useEffect(() => {
-    if (selectedPhoneData ) {
+    if (selectedPhoneData) {
       setImage(selectedPhoneData.colorOptions[0].imageUrl);
-  
+
       setSelectedStorage(selectedPhoneData.storageOptions[0].capacity);
       setDataCart({
         id: selectedPhoneData.id,
@@ -93,7 +90,6 @@ const PhoneDetail = () => {
       router.push('/cart');
     }
   };
-  
 
   useEffect(() => {
     if (!selectedPhoneId) {
@@ -111,13 +107,13 @@ const PhoneDetail = () => {
 
   return (
     <div className="product-container">
-      {isLoading && !image ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <>
           <div className="product-container--image-detail-container">
             <div className="product-container--image">
-              {image && (
+              {image ? (
                 <Image
                   src={secureImageUrl || image}
                   alt={selectedPhoneData?.name || 'Phone'}
@@ -126,6 +122,8 @@ const PhoneDetail = () => {
                   priority
                   style={{ objectFit: 'contain' }}
                 />
+              ) : (
+                <Loading />
               )}
             </div>
             <div className="product-container--detail">

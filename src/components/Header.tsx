@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import SvgRender from './SvgRender';
-import svgs from '../assets/svgs.json';
+import svgs from '@/assets/svgs.json';
 import { usePhone } from '@/context/PhonesContext';
 import { useRouter } from 'next/navigation';
 

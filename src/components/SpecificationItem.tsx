@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/specificationItem.scss';
+import '@/styles/components/specificationItem.scss';
 import { SpecificationsItemProps } from '@/interfaces';
 
 const SpecificationItem: React.FC<SpecificationsItemProps> = ({ title, data }) => {
@@ -8,7 +8,6 @@ const SpecificationItem: React.FC<SpecificationsItemProps> = ({ title, data }) =
       <div className="specification-item--title">
         <p>{title}</p>
       </div>
-
       <div className="specification-item--info">
         <p>{data}</p>
       </div>

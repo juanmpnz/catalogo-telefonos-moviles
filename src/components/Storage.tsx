@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/storage.scss';
+import '@/styles/components/storage.scss';
 import clsx from 'clsx';
 import { StorageProps } from '@/interfaces';
 

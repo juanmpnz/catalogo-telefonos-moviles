@@ -1,9 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import '../styles/components/search.scss';
+import '@/styles/components/search.scss';
 import SvgRender from './SvgRender';
-
-import svgs from '../assets/svgs.json';
+import svgs from '@/assets/svgs.json';
 import { SearchProps } from '@/interfaces';
 
 const Search: React.FC<SearchProps> = ({ placeholder = 'Search...', onSearch }) => {

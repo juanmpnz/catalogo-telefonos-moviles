@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 56px;
 
   &--image-detail-container {
     width: 100%;
@@ -25,7 +25,6 @@
     width: 510px;
     @include mq('mobile') {
       max-width: 260px;
-    
     }
     img {
       @include mq('mobile') {
@@ -48,7 +47,7 @@
       text-align: left;
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
-      margin-bottom: $spacing-48;
+      margin-bottom: $spacing-large;
 
       p {
         margin: 0;
@@ -60,9 +59,16 @@
       font-size: 14px;
       font-weight: 300;
       line-height: 16.93px;
+      text-transform: uppercase;
       text-align: left;
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
+
+      @include mq('mobile') {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
     }
 
     &--storage-data {
@@ -73,6 +79,7 @@
       display: flex;
       flex-direction: column;
       margin-top: $spacing-large;
+
       p {
         text-transform: uppercase;
       }
@@ -82,7 +89,6 @@
   &--specifications {
     width: 100%;
     max-width: 1200px;
-
     gap: 40px;
 
     h1 {
@@ -108,6 +114,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
     &--data {
       display: flex;
     }

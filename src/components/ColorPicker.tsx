@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/components/colorPicker.scss';
+import '@/styles/components/colorPicker.scss';
 import { ColorOption, ColorPickerProps } from '@/interfaces';
 
 const ColorPicker: React.FC<ColorPickerProps> = ({ colors, onColorSelect }) => {

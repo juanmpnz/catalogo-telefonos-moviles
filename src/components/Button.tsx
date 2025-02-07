@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import '../styles/components/button.scss';
+import '@/styles/components/button.scss';
 import { ButtonProps } from '@/interfaces';
 
 const Button: React.FC<ButtonProps> = ({

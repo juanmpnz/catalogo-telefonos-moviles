@@ -2,13 +2,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Card from './Card';
 import componentText from '@/locales/locales.json';
-import { Phone, SimilarProduct } from '@/interfaces';
-
-import '@/styles/components/similarItem.scss'
-
-interface SimilarProductsProps {
-  selectedPhoneData?: Phone | null;
-}
+import { SimilarProduct, SimilarProductsProps } from '@/interfaces';
+import '@/styles/components/similarItem.scss';
 
 const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) => {
   const { similarItemsText } = componentText.product;
@@ -47,7 +42,7 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
     if (!isDragging || !sliderRef.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Factor de velocidad de desplazamiento
+    const walk = (x - startX) * 2;
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
