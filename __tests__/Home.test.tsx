@@ -4,14 +4,12 @@ import { usePhone } from '@/context/PhonesContext';
 import { useRouter } from 'next/navigation';
 import '@testing-library/jest-dom';
 
-// Mock del router de Next.js
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(() => ({
     push: jest.fn(),
   })),
 }));
 
-// Mock del contexto de teléfonos
 jest.mock('@/context/PhonesContext', () => {
   const actualModule = jest.requireActual('@/context/PhonesContext');
   return {
@@ -27,14 +25,12 @@ describe('Home Component', () => {
   const mockRouterPush = jest.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks(); // 🔥 Limpiar mocks antes de cada test
+    jest.clearAllMocks();
 
-    // Mock de useRouter
     (useRouter as jest.Mock).mockReturnValue({
       push: mockRouterPush,
     });
 
-    // Mock de usePhone
     (usePhone as jest.Mock).mockReturnValue({
       setSelectedPhoneId: mockSetSelectedPhoneId,
       fetchAndSetAllPhonesData: mockFetchAndSetAllPhonesData,

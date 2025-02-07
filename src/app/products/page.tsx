@@ -25,13 +25,12 @@ const translations: { [K in keyof PhoneSpecs]: string } = {
 };
 
 const PhoneDetail = () => {
-  const { priceForm, currency, storageText, pickColorText, buttonText, specificationsText , url} = componentText.product;
+  const { priceForm, currency, storageText, pickColorText, buttonText, specificationsText } = componentText.product;
   const { selectedPhoneId, selectedPhoneData, fetchAndSetPhoneData, isLoading, clearPhoneData, addToCart } = usePhone();
   const router = useRouter();
   const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
   const [dataCart, setDataCart] = useState<ICartItem | null>(null);
   const [image, setImage] = useState(selectedPhoneData?.colorOptions[0].imageUrl);
-  const { setSelectedPhoneId } = usePhone();
 
   const secureImageUrl = image?.startsWith('http://') ? image.replace(/^http:\/\//i, 'https://') : image;
 

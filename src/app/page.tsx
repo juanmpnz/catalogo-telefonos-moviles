@@ -22,7 +22,7 @@ export default function Home() {
     if (!storedPhones?.length) {
       fetchAndSetAllPhonesData();
     }
-  }, []);
+  }, [storedPhones]);
 
   const onSearchPhone = (params: string) => {
     fetchAndSetPhoneByQueryData(params);
