@@ -1,27 +1,29 @@
 'use client';
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { usePhonesApi } from '@/hooks/usePhonesApi';
-import { ICartItem, Phone } from '@/interfaces';
-import { PhoneContextType } from '@/interfaces';
+import { Phone } from '@/interfaces';
+
+interface PhoneContextType {
+  storedPhones: Phone[] | null;
+  selectedPhoneId: string | null;
+  selectedPhoneData: Phone | null;
+  fetchAndSetPhoneData: (id: string) => Promise<void>;
+  fetchAndSetAllPhonesData: () => Promise<void>;
+  fetchAndSetPhoneByQueryData: (params: string) => Promise<void>;
+  clearSelection: () => void;
+  clearPhoneData: () => void;
+  setSelectedPhoneId: (p: string) => void;
+  isLoading: boolean;
+}
 
 const PhoneContext = createContext<PhoneContextType | undefined>(undefined);
 
 export const PhoneProvider = ({ children, initialPhones = [] }: { children: ReactNode; initialPhones?: Phone[] }) => {
-  const [storedPhones, setStoredPhones] = useState<Phone[]  | null>(initialPhones);
+  const [storedPhones, setStoredPhones] = useState<Phone[] | null>(initialPhones);
   const [selectedPhoneId, setSelectedPhoneId] = useState<string | null>(null);
   const [selectedPhoneData, setSelectedPhoneData] = useState<Phone | null>(null);
-  const [cart, setCart] = useState<ICartItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { getPhoneById, getPhones, getPhoneByName } = usePhonesApi();
-
-  useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) setCart(JSON.parse(storedCart));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
 
   const fetchAndSetPhoneData = async (id: string) => {
     setIsLoading(true);
@@ -31,21 +33,18 @@ export const PhoneProvider = ({ children, initialPhones = [] }: { children: Reac
     setIsLoading(false);
   };
 
-    const fetchAndSetPhoneByQueryData = async (params: string ) => {
-      setIsLoading(true);
-      const phones = await getPhoneByName(params);
-      if (phones) setStoredPhones(phones);
-      setIsLoading(false);
-    };
+  const fetchAndSetPhoneByQueryData = async (params: string) => {
+    setIsLoading(true);
+    const phones = await getPhoneByName(params);
+    if (phones) setStoredPhones(phones);
+    setIsLoading(false);
+  };
 
   const fetchAndSetAllPhonesData = async () => {
     setIsLoading(true);
-
     try {
       const phones = await getPhones();
       if (phones) setStoredPhones(phones);
-    } catch (error) {
-      console.error('Error al obtener teléfonos:', error);
     } finally {
       setIsLoading(false);
     }
@@ -59,43 +58,19 @@ export const PhoneProvider = ({ children, initialPhones = [] }: { children: Reac
   const clearPhoneData = () => {
     setSelectedPhoneData(null);
   };
-
-  const addToCart = (item: ICartItem) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((i) => i.id === item.id);
-      if (existingItem) {
-        return prevCart.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i));
-      }
-      return [...prevCart, item];
-    });
-  };
-
-  const removeFromCart = (id: string) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-  };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
   return (
     <PhoneContext.Provider
       value={{
         storedPhones,
-        setStoredPhones,
         selectedPhoneId,
         selectedPhoneData,
-        setSelectedPhoneId,
         fetchAndSetPhoneData,
         fetchAndSetAllPhonesData,
         fetchAndSetPhoneByQueryData,
+        setSelectedPhoneId,
         clearSelection,
         clearPhoneData,
         isLoading,
-        cart,
-        addToCart,
-        removeFromCart,
-        clearCart,
       }}
     >
       {children}
@@ -105,8 +80,6 @@ export const PhoneProvider = ({ children, initialPhones = [] }: { children: Reac
 
 export const usePhone = () => {
   const context = useContext(PhoneContext);
-  if (!context) {
-    throw new Error('usePhone debe usarse dentro de un PhoneProvider');
-  }
+  if (!context) throw new Error('usePhone debe usarse dentro de un PhoneProvider');
   return context;
 };

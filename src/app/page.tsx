@@ -1,7 +1,7 @@
 'use client';
 import Card from '@/components/Card';
 import Search from '@/components/Search';
-import { usePhone } from '@/context/PhonesContext';
+import { usePhone } from '@/context/PhoneContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import componentTexts from '@/locales/locales.json';
@@ -35,8 +35,8 @@ export default function Home() {
       <Search onSearch={onSearchPhone} />
       <p className='home-container-search-results'> {storedPhones?.length} {textResults}</p>
       <div className="home-container-phone-items-container">
-        {storedPhones?.map((e, i) => (
-          <div key={e.id + i}>
+        {storedPhones?.map((e) => (
+          <div key={e.id}>
             <Card phone={e} onClick={() => onClick(e.id)} />
           </div>
         ))}

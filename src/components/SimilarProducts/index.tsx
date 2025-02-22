@@ -63,8 +63,8 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
           onMouseUp={handleMouseUp}
           style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         >
-          {selectedPhoneData?.similarProducts.map((element: SimilarProduct, i: number) => (
-            <div key={element.id + i}>
+          {selectedPhoneData?.similarProducts.map((element: SimilarProduct ) => (
+            <div key={element.id}>
               <Card phone={element} onClick={() => null} />
             </div>
           ))}

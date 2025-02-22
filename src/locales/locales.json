@@ -21,6 +21,16 @@
     "metadata" : {
       "title" : "Catálogo teléfonos móviles",
       "description" : "Desafío de código"
+    },
+    "phoneSpecs": {
+      "screen": "pantalla",
+      "resolution": "resolución",
+      "processor": "procesador",
+      "mainCamera": "cámara principal",
+      "selfieCamera": "cámara frontal",
+      "battery": "batería",
+      "os": "sistema operativo",
+      "screenRefreshRate": "frecuencia de actualización"
     }
   }
 }

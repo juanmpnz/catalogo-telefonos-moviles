@@ -2,12 +2,12 @@
 import React from 'react';
 import SvgRender from '../SvgRender';
 import svgs from '@/assets/svgs.json';
-import { usePhone } from '@/context/PhonesContext';
+import { useCart } from '@/context/CartContext';
 import { useRouter } from 'next/navigation';
 
 const Header: React.FC = () => {
   const { logoSvg, bagActiveSvg, bagInactiveSvg } = svgs;
-  const { cart } = usePhone();
+  const { cart } = useCart();
   const router = useRouter();
   return (
     <header>

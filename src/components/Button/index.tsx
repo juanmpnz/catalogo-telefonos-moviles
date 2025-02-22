@@ -3,13 +3,7 @@ import clsx from 'clsx';
 import { ButtonProps } from '@/interfaces';
 import './button.scss';
 
-const Button: React.FC<ButtonProps> = ({
-  variant = 'text',
-  extraHeigth = false,
-  disabled = false,
-  onClick,
-  children,
-}) => {
+const Button: React.FC<ButtonProps> = ({ variant = 'text', extraHeigth = false, disabled = false, onClick, children }) => {
   const buttonClasses = clsx('button', {
     'button--text': variant === 'text',
     'button--primary': variant === 'primary',
