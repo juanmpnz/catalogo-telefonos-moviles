@@ -9,9 +9,10 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
   const { similarItemsText } = componentText.translations.product;
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+ 
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -24,7 +25,6 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
     };
 
     slider.addEventListener('scroll', handleScroll);
-
     return () => {
       slider.removeEventListener('scroll', handleScroll);
     };
@@ -33,21 +33,21 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
   const handleMouseDown = (e: React.MouseEvent) => {
     const slider = sliderRef.current;
     if (!slider) return;
-    setIsDragging(true);
-    setStartX(e.pageX - slider.offsetLeft);
-    setScrollLeft(slider.scrollLeft);
+    isDragging.current = true;
+    startX.current = e.pageX - slider.offsetLeft;
+    scrollLeft.current = slider.scrollLeft;
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !sliderRef.current) return;
+    if (!isDragging.current || !sliderRef.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
+    const walk = (x - startX.current) * 2;
+    sliderRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
   const handleMouseUp = () => {
-    setIsDragging(false);
+    isDragging.current = false;
   };
 
   return (
@@ -61,7 +61,7 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseUp}
           onMouseUp={handleMouseUp}
-          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+          style={{ cursor: isDragging.current ? 'grabbing' : 'grab' }}
         >
           {selectedPhoneData?.similarProducts.map((element: SimilarProduct) => (
             <div key={element.id}>
