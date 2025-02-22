@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'text', extraHeigth = false, 
     'button--disabled': disabled,
   });
   return (
-    <button className={buttonClasses} onClick={() => onClick()}>
+    <button className={buttonClasses} onClick={() => onClick && onClick()}>
       {children}
     </button>
   );

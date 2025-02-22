@@ -6,7 +6,7 @@ import './card.scss';
 const Card: React.FC<CardProps> = ({ phone, onClick }) => {
   const secureImageUrl = phone.imageUrl?.startsWith('http://') ? phone.imageUrl.replace(/^http:\/\//i, 'https://') : phone.imageUrl;
   return (
-    <span onClick={() => onClick(phone.id)}>
+    <span onClick={() => onClick && onClick(phone.id)}>
       <div className='card'>
         <div className='card--card-image'>
           <Image src={secureImageUrl} alt={`${phone.brand} - ${phone.name}`} width={312} height={257} priority style={{ objectFit: 'contain' }} />

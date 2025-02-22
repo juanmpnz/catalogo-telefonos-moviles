@@ -4,21 +4,16 @@ import Button from '@/components/Button';
 import CartItem from '@/components/CartItem';
 import { useCart } from '@/context/CartContext';
 import { ICartItem } from '@/interfaces';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import componentText from '@/locales/locales.json';
 import config from '@/config/config.json';
 
 export default function Cart() {
-  const router = useRouter();
   const { title, buttonText, buttonTextSecond, totalText } = componentText.translations.cart;
   const { currency } = config.configurations.cart;
 
   const { cart, removeFromCart, clearCart } = useCart();
   const total = cart.reduce((acc, item) => acc + item.basePrice * item.quantity, 0);
-
-  const handleClick = () => {
-    router.push('/');
-  };
 
   return (
     <div className='cart-container'>
@@ -27,7 +22,7 @@ export default function Cart() {
       </div>
       <div>
         {cart.map((e: ICartItem) => (
-          <span key={e.id}>
+          <span key={`${e.id}-${e.storage}-${e.colorName}`}>
             <CartItem phone={e} onDelete={removeFromCart} />
           </span>
         ))}
@@ -35,9 +30,11 @@ export default function Cart() {
       <div className='cart-container--footer'>
         <div className='cart-container--footer--content'>
           <span className='button-w'>
-            <Button variant='text' onClick={handleClick} extraHeigth>
-              {buttonText}
-            </Button>
+            <Link href='/' passHref>
+              <Button variant='text' extraHeigth>
+                {buttonText}
+              </Button>
+            </Link>
           </span>
           <div className='cart-container--footer--total'>
             <p>{`${totalText} ${total} ${currency}`}</p>

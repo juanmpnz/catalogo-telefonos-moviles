@@ -4,13 +4,13 @@ export interface ButtonProps {
   variant?: 'text' | 'primary' | 'tertiary';
   extraHeigth?: boolean;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   children?: React.ReactNode;
 }
 
 export interface CardProps {
   phone: Phone | SimilarProduct;
-  onClick: (phone: string) => void;
+  onClick?: (phone: string) => void;
 }
 
 export interface ColorOption {

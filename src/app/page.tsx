@@ -29,7 +29,7 @@ export default function Home() {
   const onSearchPhone = (params: string) => {
     fetchAndSetPhoneByQueryData(params);
   };
- 
+  console.log(storedPhones);
   return (
     <div className='home-container'>
       <Search onSearch={onSearchPhone} />
