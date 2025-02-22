@@ -6,10 +6,12 @@ import { usePhone } from '@/context/PhonesContext';
 import { ICartItem } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import componentText from '@/locales/locales.json';
+import config from '@/config/config.json';
 
 export default function Cart() {
   const router = useRouter();
-  const { title, buttonText, buttonTextSecond, currency, totalText } = componentText.cart;
+  const { title, buttonText, buttonTextSecond, totalText } = componentText.translations.cart;
+  const {currency} = config.configurations.cart
   const { cart, removeFromCart, clearCart } = usePhone();
   const total = cart.reduce((acc, item) => acc + item.basePrice, 0);
 

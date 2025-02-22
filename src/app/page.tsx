@@ -5,11 +5,13 @@ import { usePhone } from '@/context/PhonesContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import componentTexts from '@/locales/locales.json';
+import config from '@/config/config.json';
 import './home.scss';
  
 export default function Home() {
   const router = useRouter();
-  const { textResults, url } = componentTexts.home;
+  const { textResults } = componentTexts.translations.home;
+  const { url } = config.configurations.home;
   const { setSelectedPhoneId, fetchAndSetAllPhonesData, fetchAndSetPhoneByQueryData, storedPhones } =
     usePhone();
 

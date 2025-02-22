@@ -6,7 +6,7 @@ import { SimilarProduct, SimilarProductsProps } from '@/interfaces';
 import './similarItem.scss';
 
 const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) => {
-  const { similarItemsText } = componentText.product;
+  const { similarItemsText } = componentText.translations.product;
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [isDragging, setIsDragging] = useState(false);

@@ -1,0 +1,14 @@
+{
+  "configurations": {
+    "home": {
+      "url": "/products"
+    },
+    "product": {
+      "url": "/products",
+      "currency": "EUR"
+    },
+    "cart": {
+      "currency": "EUR"
+    }
+  }
+}

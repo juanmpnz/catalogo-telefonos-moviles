@@ -1,24 +1,22 @@
 {
-  "home": {
-    "url": "/products",
-    "textResults": "RESULTS"
-  },
-  "product": {
-    "url": "/products",
-    "priceForm": "form",
-    "currency": "EUR",
-    "storageText": "Storage: HOW MUCH SPACE DO YOU NEED?",
-    "pickColorText": "color. pick your favourite.",
-    "buttonText": "añadir",
-    "specificationsText": "SPECIFICATIONS",
-    "similarItemsText": "SIMILAR ITEMS"
-  },
-  "cart": {
-    "title": "Cart",
-    "buttonText": "continue shopping",
-    "buttonTextSecond": "pay",
-    "totalText": "TOTAL",
-    "currency": "EUR",
-    "buttonDeleteText": "Eliminar"
+  "translations": {
+    "home": {
+      "textResults": "RESULTS"
+    },
+    "product": {
+      "priceForm": "FORM",
+      "storageText": "Storage: HOW MUCH SPACE DO YOU NEED?",
+      "pickColorText": "color. pick your favourite.",
+      "buttonText": "añadir",
+      "specificationsText": "SPECIFICATIONS",
+      "similarItemsText": "SIMILAR ITEMS"
+    },
+    "cart": {
+      "title": "Cart",
+      "buttonText": "continue shopping",
+      "buttonTextSecond": "pay",
+      "totalText": "TOTAL",
+      "buttonDeleteText": "Eliminar"
+    }
   }
 }

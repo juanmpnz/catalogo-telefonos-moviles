@@ -9,6 +9,7 @@ import Button from '@/components/Button';
 import SpecificationItem from '@/components/SpecificationItem';
 import SimilarProducts from '@/components/SimilarProducts';
 import componentText from '@/locales/locales.json';
+import config from '@/config/config.json';
 import Loading from '@/components/Loading';
 import Image from 'next/image';
 import './product.scss';
@@ -25,7 +26,8 @@ const translations: { [K in keyof PhoneSpecs]: string } = {
 };
 
 const PhoneDetail = () => {
-  const { priceForm, currency, storageText, pickColorText, buttonText, specificationsText } = componentText.product;
+  const { priceForm,  storageText, pickColorText, buttonText, specificationsText } =  componentText.translations.product; 
+  const { currency } =  config.configurations.product; 
   const { selectedPhoneId, selectedPhoneData, fetchAndSetPhoneData, isLoading, clearPhoneData, addToCart } = usePhone();
   const router = useRouter();
   const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
