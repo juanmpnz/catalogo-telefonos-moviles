@@ -11,7 +11,7 @@ import SimilarProducts from '@/components/SimilarProducts';
 import componentText from '@/locales/locales.json';
 import Loading from '@/components/Loading';
 import Image from 'next/image';
-import '@/styles/product.scss';
+import './product.scss';
 
 const translations: { [K in keyof PhoneSpecs]: string } = {
   screen: 'pantalla',

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import '@/styles/components/search.scss';
-import SvgRender from './SvgRender';
+import './search.scss';
+import SvgRender from '../SvgRender';
 import svgs from '@/assets/svgs.json';
 import { SearchProps } from '@/interfaces';
 

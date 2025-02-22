@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import '@/styles/components/button.scss';
 import { ButtonProps } from '@/interfaces';
+import './button.scss';
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'text',

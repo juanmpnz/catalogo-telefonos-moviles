@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import Card from './Card';
+import Card from '../Card';
 import componentText from '@/locales/locales.json';
 import { SimilarProduct, SimilarProductsProps } from '@/interfaces';
-import '@/styles/components/similarItem.scss';
+import './similarItem.scss';
 
 const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) => {
   const { similarItemsText } = componentText.product;

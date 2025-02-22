@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardProps } from '@/interfaces';
 import Image from 'next/image';
-import '@/styles/components/card.scss';
+import './card.scss';
 
 const Card: React.FC<CardProps> = ({ phone, onClick }) => {
   const secureImageUrl = phone.imageUrl?.startsWith('http://')

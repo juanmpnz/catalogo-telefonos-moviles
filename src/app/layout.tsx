@@ -3,12 +3,13 @@ import { PhoneProvider } from '@/context/PhonesContext';
 import '@/styles/globals.scss';
 import Header from '@/components/Header';
 import { getPhones } from '@/services/api';
+import './layout.scss';
 
 export const metadata: Metadata = {
   title: 'Catálogo teléfonos móviles',
   description: 'Desafío de código',
   icons: {
-    icon: '/favicon.ico', 
+    icon: '/favicon.ico',
   },
 };
 

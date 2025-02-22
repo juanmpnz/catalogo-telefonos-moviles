@@ -1,5 +1,5 @@
 'use client';
-import '@/styles/cart.scss';
+import './cart.scss';
 import Button from '@/components/Button';
 import CartItem from '@/components/CartItem';
 import { usePhone } from '@/context/PhonesContext';

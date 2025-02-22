@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/styles/components/specificationItem.scss';
+import './specificationItem.scss';
 import { SpecificationsItemProps } from '@/interfaces';
 
 const SpecificationItem: React.FC<SpecificationsItemProps> = ({ title, data }) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import Button from './Button';
+import Button from '../Button';
 import { CartItemProps } from '@/interfaces';
 import componentTextRaw from '@/locales/locales.json';
-import '@/styles/components/cartItem.scss';
+import './cartItem.scss';
 
 const CartItem: React.FC<CartItemProps> = ({ phone, onDelete }) => {
   const componentText =

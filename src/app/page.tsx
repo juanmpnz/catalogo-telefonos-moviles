@@ -5,7 +5,7 @@ import { usePhone } from '@/context/PhonesContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import componentTexts from '@/locales/locales.json';
-import '@/styles/home.scss';
+import './home.scss';
  
 export default function Home() {
   const router = useRouter();
