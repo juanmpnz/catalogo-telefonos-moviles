@@ -15,6 +15,7 @@
     "classnames": "2.5.1",
     "clsx": "2.1.1",
     "next": "15.1.6",
+    "object-hash": "^3.0.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sass": "1.83.4"
@@ -25,6 +26,7 @@
     "@testing-library/react": "16.2.0",
     "@types/jest": "29.5.14",
     "@types/node": "20.0.0",
+    "@types/object-hash": "^3.0.6",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "babel-jest": "29.7.0",

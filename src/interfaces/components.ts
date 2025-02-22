@@ -39,13 +39,7 @@ export interface StorageProps {
   onClick: (storage: string) => void;
   children?: React.ReactNode;
 }
-
-export interface SvgRenderProps {
-  size?: number;
-  color?: string;
-  svgContent: string;
-  onClick?: () => void;
-}
+ 
 export interface SimilarProductsProps {
   selectedPhoneData?: Phone | null;
 }

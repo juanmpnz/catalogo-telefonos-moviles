@@ -13,6 +13,7 @@ import componentText from '@/locales/locales.json';
 import config from '@/config/config.json';
 import Loading from '@/components/Loading';
 import Image from 'next/image';
+import hash from 'object-hash';
 import './product.scss';
 
 const translations: { [K in keyof PhoneSpecs]: string } = {
@@ -128,8 +129,8 @@ const PhoneDetail = () => {
               <div className='product-container--detail--storage-title'>
                 <p>{storageText}</p>
                 <div className='product-container--detail--storage-data'>
-                  {selectedPhoneData?.storageOptions.map((element, i) => (
-                    <div key={element.capacity + i}>
+                  {selectedPhoneData?.storageOptions.map((element ) => (
+                    <div  key={hash(Math.random())}>
                       <Storage selected={selectedStorage === element.capacity} onClick={() => handleStorageSelection(element.capacity)}>
                         {element.capacity}
                       </Storage>

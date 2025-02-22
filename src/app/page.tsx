@@ -4,6 +4,7 @@ import Search from '@/components/Search';
 import { usePhone } from '@/context/PhoneContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import hash from 'object-hash';
 import componentTexts from '@/locales/locales.json';
 import config from '@/config/config.json';
 import './home.scss';
@@ -28,17 +29,16 @@ export default function Home() {
   const onSearchPhone = (params: string) => {
     fetchAndSetPhoneByQueryData(params);
   };
-
+ 
   return (
     <div className='home-container'>
       <Search onSearch={onSearchPhone} />
       <p className='home-container-search-results'>
-        {' '}
         {storedPhones?.length} {textResults}
       </p>
       <div className='home-container-phone-items-container'>
         {storedPhones?.map(e => (
-          <div key={e.id}>
+          <div key={hash(Math.random())}>
             <Card phone={e} onClick={() => onClick(e.id)} />
           </div>
         ))}

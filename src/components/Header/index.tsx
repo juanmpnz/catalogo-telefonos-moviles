@@ -1,20 +1,41 @@
 'use client';
 import React from 'react';
-import SvgRender from '../SvgRender';
-import svgs from '@/assets/svgs.json';
+import Logo from '@/components/Icons/Logo';
+import BagActive from '@/components/Icons/BagActive';
+import BagInactive from '@/components/Icons/BagInactive';
 import { useCart } from '@/context/CartContext';
 import { useRouter } from 'next/navigation';
 
 const Header: React.FC = () => {
-  const { logoSvg, bagActiveSvg, bagInactiveSvg } = svgs;
   const { cart } = useCart();
   const router = useRouter();
+  const handleNavigation = (path: string) => router.push(path);
+
   return (
     <header>
-      <SvgRender svgContent={logoSvg} onClick={() => router.push('/')} />
+      <span
+        role='button'
+        tabIndex={0}
+        onClick={() => handleNavigation('/')}
+        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && handleNavigation('/')}
+        style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center' }}
+        aria-label='Ir a inicio'
+      >
+        <Logo size={80} />
+      </span>
+
       <div className='card-content-header'>
-        <SvgRender svgContent={cart.length ? bagActiveSvg : bagInactiveSvg} size={18} onClick={() => router.push('/cart')} />
-        <span>{cart.length}</span>
+        <span
+          role='button'
+          tabIndex={0}
+          onClick={() => handleNavigation('/cart')}
+          onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && handleNavigation('/cart')}
+          style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center' }}
+          aria-label='Ir al carrito'
+        >
+          {cart.length > 0 ? <BagActive size={24} /> : <BagInactive size={24} />}
+          <span>{cart.length}</span>
+        </span>
       </div>
     </header>
   );

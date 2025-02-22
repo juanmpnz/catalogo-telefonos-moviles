@@ -1,12 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import './search.scss';
-import SvgRender from '../SvgRender';
-import svgs from '@/assets/svgs.json';
 import { SearchProps } from '@/interfaces';
+import CloseIcon from '../Icons/CloseIcon';
+import './search.scss';
 
 const Search: React.FC<SearchProps> = ({ placeholder = 'Search...', onSearch }) => {
-  const { closeIcon } = svgs;
   const [query, setQuery] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +23,7 @@ const Search: React.FC<SearchProps> = ({ placeholder = 'Search...', onSearch }) 
       <input type='text' className='search__input' placeholder={placeholder} value={query} onChange={handleChange} />
       {query && (
         <button type='button' className='search__clear' onClick={handleClear} aria-label='Clear search'>
-          <SvgRender svgContent={closeIcon} size={25} />
+          <CloseIcon />
         </button>
       )}
     </form>
