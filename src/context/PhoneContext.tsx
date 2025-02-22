@@ -1,18 +1,13 @@
 'use client';
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { usePhonesApi } from '@/hooks/usePhonesApi';
+import  { getPhones, getPhoneByName } from '@/services/api';
 import { Phone } from '@/interfaces';
 
 interface PhoneContextType {
   storedPhones: Phone[] | null;
-  selectedPhoneId: string | null;
-  selectedPhoneData: Phone | null;
-  fetchAndSetPhoneData: (id: string) => Promise<void>;
   fetchAndSetAllPhonesData: () => Promise<void>;
   fetchAndSetPhoneByQueryData: (params: string) => Promise<void>;
-  clearSelection: () => void;
-  clearPhoneData: () => void;
-  setSelectedPhoneId: (p: string) => void;
+  clearPhones: () => void;
   isLoading: boolean;
 }
 
@@ -20,19 +15,8 @@ const PhoneContext = createContext<PhoneContextType | undefined>(undefined);
 
 export const PhoneProvider = ({ children, initialPhones = [] }: { children: ReactNode; initialPhones?: Phone[] }) => {
   const [storedPhones, setStoredPhones] = useState<Phone[] | null>(initialPhones);
-  const [selectedPhoneId, setSelectedPhoneId] = useState<string | null>(null);
-  const [selectedPhoneData, setSelectedPhoneData] = useState<Phone | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { getPhoneById, getPhones, getPhoneByName } = usePhonesApi();
-
-  const fetchAndSetPhoneData = async (id: string) => {
-    setIsLoading(true);
-    setSelectedPhoneId(id);
-    const phone = await getPhoneById(id);
-    if (phone) setSelectedPhoneData(phone);
-    setIsLoading(false);
-  };
-
+ 
   const fetchAndSetPhoneByQueryData = async (params: string) => {
     setIsLoading(true);
     const phones = await getPhoneByName(params);
@@ -50,26 +34,17 @@ export const PhoneProvider = ({ children, initialPhones = [] }: { children: Reac
     }
   };
 
-  const clearSelection = () => {
-    setSelectedPhoneId(null);
-    setSelectedPhoneData(null);
+  const clearPhones = () => {
+    setStoredPhones(null);
   };
 
-  const clearPhoneData = () => {
-    setSelectedPhoneData(null);
-  };
   return (
     <PhoneContext.Provider
       value={{
         storedPhones,
-        selectedPhoneId,
-        selectedPhoneData,
-        fetchAndSetPhoneData,
         fetchAndSetAllPhonesData,
         fetchAndSetPhoneByQueryData,
-        setSelectedPhoneId,
-        clearSelection,
-        clearPhoneData,
+        clearPhones,
         isLoading,
       }}
     >

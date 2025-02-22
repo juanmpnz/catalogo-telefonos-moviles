@@ -32,3 +32,4 @@ export interface CartItemProps {
   phone: ICartItem;
   onDelete: (id: string) => void;
 }
+

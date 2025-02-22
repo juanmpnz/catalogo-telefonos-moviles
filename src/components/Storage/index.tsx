@@ -10,8 +10,13 @@ const Storage: React.FC<StorageProps> = ({ selected = false, onClick, children }
 
   return (
     <div>
-      <button className={storageClasses} onClick={() => onClick('e')}>
-        {children || 'TEST'}
+      <button
+        className={storageClasses}
+        onClick={() => onClick(children?.toString() ?? '')} 
+        aria-pressed={selected} 
+        aria-label={`Seleccionar almacenamiento ${children ?? ''}`} 
+      >
+        {children} 
       </button>
     </div>
   );

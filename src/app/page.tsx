@@ -1,24 +1,16 @@
 'use client';
 import Card from '@/components/Card';
 import Search from '@/components/Search';
-import { usePhone } from '@/context/PhoneContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import Link from 'next/link';
 import hash from 'object-hash';
 import componentTexts from '@/locales/locales.json';
-import config from '@/config/config.json';
+import { usePhone } from '@/context/PhoneContext';
+import { useEffect } from 'react';
 import './home.scss';
 
 export default function Home() {
-  const router = useRouter();
   const { textResults } = componentTexts.translations.home;
-  const { url } = config.configurations.home;
-  const { setSelectedPhoneId, fetchAndSetAllPhonesData, fetchAndSetPhoneByQueryData, storedPhones } = usePhone();
-
-  const onClick = async (id: string) => {
-    setSelectedPhoneId(id);
-    router.push(url);
-  };
+  const { fetchAndSetAllPhonesData, fetchAndSetPhoneByQueryData, storedPhones } = usePhone();
 
   useEffect(() => {
     if (!storedPhones?.length) {
@@ -29,7 +21,7 @@ export default function Home() {
   const onSearchPhone = (params: string) => {
     fetchAndSetPhoneByQueryData(params);
   };
-  console.log(storedPhones);
+
   return (
     <div className='home-container'>
       <Search onSearch={onSearchPhone} />
@@ -38,9 +30,9 @@ export default function Home() {
       </p>
       <div className='home-container-phone-items-container'>
         {storedPhones?.map(e => (
-          <div key={hash(Math.random())}>
-            <Card phone={e} onClick={() => onClick(e.id)} />
-          </div>
+          <Link key={hash(Math.random())} href={`/product/${e.id}`}>
+            <Card phone={e} />
+          </Link>
         ))}
       </div>
     </div>
