@@ -4,11 +4,11 @@ import { SpecificationsItemProps } from '@/interfaces';
 
 const SpecificationItem: React.FC<SpecificationsItemProps> = ({ title, data }) => {
   return (
-    <div className="specification-item">
-      <div className="specification-item--title">
+    <div className='specification-item'>
+      <div className='specification-item--title'>
         <p>{title}</p>
       </div>
-      <div className="specification-item--info">
+      <div className='specification-item--info'>
         <p>{data}</p>
       </div>
     </div>

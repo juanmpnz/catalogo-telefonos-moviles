@@ -11,8 +11,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ colors, onColorSelect }) => {
   };
 
   return (
-    <div className="color-picker">
-      {colors.map((color) => (
+    <div className='color-picker'>
+      {colors.map(color => (
         <button
           key={color.hexCode}
           className={`color-picker--color-box ${selectedColor === color.hexCode ? 'selected' : ''}`}

@@ -18,9 +18,9 @@
       "totalText": "TOTAL",
       "buttonDeleteText": "Eliminar"
     },
-    "metadata" : {
-      "title" : "Catálogo teléfonos móviles",
-      "description" : "Desafío de código"
+    "metadata": {
+      "title": "Catálogo teléfonos móviles",
+      "description": "Desafío de código"
     },
     "phoneSpecs": {
       "screen": "pantalla",

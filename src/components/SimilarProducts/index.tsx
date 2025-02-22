@@ -51,11 +51,11 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
   };
 
   return (
-    <div className="similar-items-container">
+    <div className='similar-items-container'>
       <h1>{similarItemsText}</h1>
-      <div className="slider-container">
+      <div className='slider-container'>
         <div
-          className="slider"
+          className='slider'
           ref={sliderRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -63,15 +63,15 @@ const SimilarProducts: React.FC<SimilarProductsProps> = ({ selectedPhoneData }) 
           onMouseUp={handleMouseUp}
           style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         >
-          {selectedPhoneData?.similarProducts.map((element: SimilarProduct ) => (
+          {selectedPhoneData?.similarProducts.map((element: SimilarProduct) => (
             <div key={element.id}>
               <Card phone={element} onClick={() => null} />
             </div>
           ))}
         </div>
-        <div className="slider-bar">
+        <div className='slider-bar'>
           <div
-            className="slider-bar-progress"
+            className='slider-bar-progress'
             style={{
               width: `${scrollPercentage}%`,
             }}

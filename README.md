@@ -5,6 +5,7 @@ Una aplicación web **Single Page Application (SPA)** desarrollada con **Next.js
 ---
 
 ## **🛠 Tecnologías Utilizadas**
+
 - ⚛️ **React**: `v19.0.0`
 - ⚡ **Next.js**: `v15.1.6`
 - 🔹 **TypeScript**: `v5.0`
@@ -16,6 +17,7 @@ Una aplicación web **Single Page Application (SPA)** desarrollada con **Next.js
 ## **👉 Instalación**
 
 1. **Clonar el repositorio:**
+
    ```bash
    git clone https://github.com/juanmpnz/catalogo-telefonos-moviles
    cd catalogo-telefonos-moviles
@@ -31,14 +33,19 @@ Una aplicación web **Single Page Application (SPA)** desarrollada con **Next.js
 ## **🌟 Ejecución del Proyecto**
 
 ### **🌀 Modo Desarrollo**
+
 Ejecuta el siguiente comando para iniciar el entorno de desarrollo:
+
 ```bash
 npm run dev
 ```
+
 La aplicación estará disponible en: **`http://localhost:3000`**
 
 ### **🌟 Modo Producción**
+
 Para generar una versión optimizada para producción:
+
 ```bash
 npm run build
 npm run start
@@ -49,13 +56,17 @@ npm run start
 ## **🔧 Testeo del Proyecto**
 
 ### **🔢 Ejecutar Tests Unitarios**
+
 Para ejecutar las pruebas unitarias con Jest:
+
 ```bash
 npm run test
 ```
 
 ### **⏳ Ejecutar Tests en Modo Watch**
+
 Para que Jest se ejecute en modo observador:
+
 ```bash
 npm run test:watch
 ```
@@ -100,9 +111,8 @@ src/
 
 ## **👥 Autor**
 
-Desarrollado por **[Juan Manuel Panzitta]** 
- 
+Desarrollado por **[Juan Manuel Panzitta]**
+
 ---
 
 🛠 **Hecho con Next.js y ❤️!** 🚀
-

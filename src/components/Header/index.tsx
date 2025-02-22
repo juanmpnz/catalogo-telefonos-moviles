@@ -12,12 +12,8 @@ const Header: React.FC = () => {
   return (
     <header>
       <SvgRender svgContent={logoSvg} onClick={() => router.push('/')} />
-      <div className="card-content-header">
-        <SvgRender
-          svgContent={cart.length ? bagActiveSvg : bagInactiveSvg}
-          size={18}
-          onClick={() => router.push('/cart')}
-        />
+      <div className='card-content-header'>
+        <SvgRender svgContent={cart.length ? bagActiveSvg : bagInactiveSvg} size={18} onClick={() => router.push('/cart')} />
         <span>{cart.length}</span>
       </div>
     </header>

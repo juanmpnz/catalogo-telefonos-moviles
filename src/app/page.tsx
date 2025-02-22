@@ -7,13 +7,12 @@ import { useEffect } from 'react';
 import componentTexts from '@/locales/locales.json';
 import config from '@/config/config.json';
 import './home.scss';
- 
+
 export default function Home() {
   const router = useRouter();
   const { textResults } = componentTexts.translations.home;
   const { url } = config.configurations.home;
-  const { setSelectedPhoneId, fetchAndSetAllPhonesData, fetchAndSetPhoneByQueryData, storedPhones } =
-    usePhone();
+  const { setSelectedPhoneId, fetchAndSetAllPhonesData, fetchAndSetPhoneByQueryData, storedPhones } = usePhone();
 
   const onClick = async (id: string) => {
     setSelectedPhoneId(id);
@@ -29,13 +28,16 @@ export default function Home() {
   const onSearchPhone = (params: string) => {
     fetchAndSetPhoneByQueryData(params);
   };
- 
+
   return (
-    <div className="home-container">
+    <div className='home-container'>
       <Search onSearch={onSearchPhone} />
-      <p className='home-container-search-results'> {storedPhones?.length} {textResults}</p>
-      <div className="home-container-phone-items-container">
-        {storedPhones?.map((e) => (
+      <p className='home-container-search-results'>
+        {' '}
+        {storedPhones?.length} {textResults}
+      </p>
+      <div className='home-container-phone-items-container'>
+        {storedPhones?.map(e => (
           <div key={e.id}>
             <Card phone={e} onClick={() => onClick(e.id)} />
           </div>

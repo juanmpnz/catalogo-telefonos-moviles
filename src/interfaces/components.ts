@@ -44,9 +44,8 @@ export interface SvgRenderProps {
   size?: number;
   color?: string;
   svgContent: string;
-  onClick?: ()=> void;
+  onClick?: () => void;
 }
 export interface SimilarProductsProps {
   selectedPhoneData?: Phone | null;
 }
-

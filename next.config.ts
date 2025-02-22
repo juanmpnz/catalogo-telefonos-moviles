@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   swcMinify: process.env.NODE_ENV === 'production',
 
-  webpack: (config) => {
+  webpack: config => {
     return config;
   },
   images: {

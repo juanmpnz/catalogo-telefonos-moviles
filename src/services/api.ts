@@ -45,8 +45,8 @@ export const getPhoneById = async (id: string): Promise<Phone | null> => {
     return null;
   }
 };
- 
-export const getPhoneByName = async (param: string ): Promise<Phone[] | null> => {
+
+export const getPhoneByName = async (param: string): Promise<Phone[] | null> => {
   try {
     const response = await fetch(`${API_URL}?search=${param}`, {
       method: 'GET',
