@@ -4,12 +4,14 @@ import '@/styles/globals.scss';
 import Header from '@/components/Header';
 import { getPhones } from '@/services/api';
 import './layout.scss';
+import componentText from '@/locales/locales.json'
+import config from '@/config/config.json'
 
 export const metadata: Metadata = {
-  title: 'Catálogo teléfonos móviles',
-  description: 'Desafío de código',
+  title: componentText.translations.metadata.title,
+  description: componentText.translations.metadata.description,
   icons: {
-    icon: '/favicon.ico',
+    icon: config.configurations.metadata.favicon,
   },
 };
 

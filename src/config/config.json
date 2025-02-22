@@ -9,6 +9,9 @@
     },
     "cart": {
       "currency": "EUR"
+    },
+    "metadata": {
+      "favicon": "/favicon.ico"
     }
   }
 }

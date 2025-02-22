@@ -17,6 +17,10 @@
       "buttonTextSecond": "pay",
       "totalText": "TOTAL",
       "buttonDeleteText": "Eliminar"
+    },
+    "metadata" : {
+      "title" : "Catálogo teléfonos móviles",
+      "description" : "Desafío de código"
     }
   }
 }
