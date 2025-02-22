@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   font-family: inherit;
-  border: 0.5px solid var(--SDS-Semantic-Highlight-Active, rgba(204, 204, 204, 1));
+  border: 0.5px solid var(rgba(204, 204, 204, 1));
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -23,5 +23,5 @@
 }
 
 .storage--selected {
-  border: 0.5px solid var(--SDS-Semantic-Highlight-Active, $border-color);
+  border: 0.5px solid var($border-color);
 }
