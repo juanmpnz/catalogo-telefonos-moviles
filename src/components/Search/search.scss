@@ -11,12 +11,10 @@
     padding: 0;
   }
   &__input {
-    flex: 1;
+   width: 100%;
     border: none;
-    outline: none;
-
     padding: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    border-bottom: 1px solid #565656;
     font-family: Helvetica Neue;
     font-size: 16px;
     font-weight: 300;
@@ -34,6 +32,10 @@
     border: none;
     color: $text-color;
     cursor: pointer;
+    
+    @include mq('mobile') {
+      right: 0px;
+    }
   }
 
   &__button {

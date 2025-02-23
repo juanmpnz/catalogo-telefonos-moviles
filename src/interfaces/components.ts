@@ -27,6 +27,7 @@ export interface SearchProps {
   placeholder?: string;
   onChange?: (value: string) => void;
   onSearch?: (value: string) => void;
+  onQueryChange?:  (value: string) => void;
 }
 
 export interface SpecificationsItemProps {
