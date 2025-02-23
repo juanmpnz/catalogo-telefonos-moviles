@@ -33,7 +33,7 @@
 
   &--text {
     background: transparent;
-    border: 0.5px solid var($border-color);
+    border: 0.5px solid $border-color;
     color: $text-color;
     &:hover {
       color: $text-color-hover;
